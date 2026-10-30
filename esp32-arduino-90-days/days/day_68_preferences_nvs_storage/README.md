@@ -1,0 +1,19 @@
+# Day 68: Preferences (NVS storage)
+
+**Phase:** Phase 5: Advanced ESP32 (Days 64-77)
+**Goal:** Save settings across reboots
+
+## What I learned
+-
+
+## Parts used
+-
+
+## Wiring / pins
+-
+
+## Problems and fixes
+-
+
+## Result
+(Add a photo, GIF or video link)
