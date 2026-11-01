@@ -1,6 +1,6 @@
 // Day 4: External LED and resistor
 // Goal: Wire an LED on a breadboard safely
-int Ledpin=10;
+int Ledpin=23;
 void setup() {
   pinMode(Ledpin,OUTPUT);
   Serial.begin(9600);
