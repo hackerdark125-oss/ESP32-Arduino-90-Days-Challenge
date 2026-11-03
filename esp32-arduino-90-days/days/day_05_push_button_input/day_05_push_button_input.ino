@@ -1,11 +1,17 @@
-// Day 5: Push button input
-// Goal: Read digitalRead with INPUT_PULLUP
+int buttonPin = 2;
+int ledPin = 13;
 
 void setup() {
-  Serial.begin(115200);
-  // TODO: setup code
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
-  // TODO: main code
+  int buttonState = digitalRead(buttonPin);
+
+  if (buttonState == LOW) {
+    digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
 }
