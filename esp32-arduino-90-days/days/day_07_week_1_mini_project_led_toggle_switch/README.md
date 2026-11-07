@@ -33,5 +33,4 @@ The button uses the ESP32's internal pull-up, so no external button resistor is 
 - If the LED does not turn on, check its polarity and the series resistor connection.
 - If one press causes more than one toggle, check the button and breadboard connections; the sketch uses a 50 ms debounce interval.
 
-## Result
-**Pending hardware test.** Upload the sketch, press and release the button several times, and confirm that the LED changes state once per press. Add a real photo or video after testing.
+
