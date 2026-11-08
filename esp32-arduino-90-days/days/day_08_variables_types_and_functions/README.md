@@ -84,4 +84,3 @@ DAY 8 COMPLETE: DEMO FINISHED
 
 ## Result
 
-Record your actual upload and Serial Monitor test after running the sketch. Do not claim a successful hardware test until you have performed it.
