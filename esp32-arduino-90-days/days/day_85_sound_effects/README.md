@@ -1,19 +1,12 @@
 # Day 85: Sound effects
 
-**Phase:** Phase 6: Capstone - ESP32 Racing Game (Days 78-90)
-**Goal:** Buzzer engine and crash sounds
+**Goal:** Add short tones for scoring and collision events.
 
-## What I learned
--
+## Wiring
+Passive piezo buzzer positive → GPIO 25; negative → GND. Use a small piezo element, not a low-impedance speaker.
 
-## Parts used
--
+## Run
+Play the game. A short high tone plays when an obstacle is passed; a lower tone plays after a collision.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+The sketch uses LEDC tone output. The simple `beep()` helper uses a short delay, so sound briefly pauses the game loop. A polished game should schedule tones non-blockingly with `millis()`.
