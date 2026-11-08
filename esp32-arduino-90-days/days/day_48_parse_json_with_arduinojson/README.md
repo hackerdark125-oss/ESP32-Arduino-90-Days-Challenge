@@ -1,19 +1,15 @@
 # Day 48: Parse JSON with ArduinoJson
 
-**Phase:** Phase 4: WiFi, Web and IoT (Days 43-63)
-**Goal:** Read weather API data
+**Goal:** Convert a JSON text document into values the ESP32 program can use.
 
-## What I learned
--
+## Library
+Install **ArduinoJson** (version 7) from Arduino IDE Library Manager.
 
-## Parts used
--
+## Run
+Upload and open Serial Monitor at 115200 baud. The sketch parses a sample weather-like JSON document and prints its fields.
 
-## Wiring / pins
--
+## Concepts
+`deserializeJson()` parses the document. The `| default` operator supplies fallback values if a field is missing. This lesson uses a local sample string so it can be tested without Wi-Fi or an API key.
 
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Exercise
+Change the sample JSON values, add a new field, and print it. Later, combine this parser with an HTTP response.
