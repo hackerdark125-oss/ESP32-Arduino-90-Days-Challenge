@@ -1,19 +1,15 @@
 # Day 39: RTC module DS3231
 
-**Phase:** Phase 3: Displays and Communication (Days 29-42)
-**Goal:** Keep accurate time
+**Goal:** Read real date and time from a battery-backed DS3231 clock.
 
-## What I learned
--
+## Wiring
+DS3231 SDA → GPIO 21; SCL → GPIO 22; GND → GND; VCC → module-supported voltage. Confirm the breakout's I2C pull-ups are safe for 3.3 V logic.
 
-## Parts used
--
+## Library
+Install **RTClib by Adafruit** from Library Manager.
 
-## Wiring / pins
--
+## Run
+Upload and open Serial Monitor at 115200 baud. If the RTC reports lost power, the sketch sets it to the computer's sketch compile time. That is not necessarily the exact current time; for accurate setting, adjust it explicitly or synchronize with a trusted time source.
 
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+The DS3231 keeps time using its backup coin cell when the ESP32 is off. Check battery condition if time resets.
