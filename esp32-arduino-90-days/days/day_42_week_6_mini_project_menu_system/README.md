@@ -1,19 +1,16 @@
-# Day 42: Week 6 mini project: menu system
+# Day 42: Menu system mini project
 
-**Phase:** Phase 3: Displays and Communication (Days 29-42)
-**Goal:** Encoder plus OLED menu
+**Goal:** Navigate an OLED menu with a rotary encoder and select an item with its push switch.
 
-## What I learned
--
+## Wiring
+- SSD1306 OLED SDA 21, SCL 22, GND and supported VCC.
+- Encoder CLK/A → GPIO 32; DT/B → GPIO 33; SW → GPIO 25; GND → GND; VCC → compatible 3.3 V logic.
 
-## Parts used
--
+## Libraries
+Install Adafruit SSD1306 and Adafruit GFX.
 
-## Wiring / pins
--
+## Run
+Upload and rotate the encoder to move through Status, Settings, Sensors and About. Press the encoder switch to toggle a small selection indicator.
 
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+This combines input polling, menu index bounds/wraparound and OLED rendering. The simple rotary decoder may miss fast turns; improve it with a quadrature state machine for a more reliable interface.
