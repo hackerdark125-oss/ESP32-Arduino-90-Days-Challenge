@@ -1,19 +1,14 @@
-# Day 50: Basic web server
+# Day 50: Basic ESP32 web server
 
-**Phase:** Phase 4: WiFi, Web and IoT (Days 43-63)
-**Goal:** Serve a simple HTML page
+**Goal:** Host a small HTML page on the ESP32 and open it from a device on the same Wi-Fi network.
 
-## What I learned
--
+## Before upload
+Enter Wi-Fi credentials in the sketch. Do not publish real credentials.
 
-## Parts used
--
+## Run
+Upload and open Serial Monitor at 115200 baud. Copy the printed IP address into a browser on the same local network, using `http://` (for example, `http://192.168.x.x/`).
 
-## Wiring / pins
--
+## Concepts
+`WebServer` listens on port 80. The root route returns an HTML response. The main loop must call `server.handleClient()` so requests are processed.
 
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+This is a local learning server, not an internet-hardened web service.
