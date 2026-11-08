@@ -1,11 +1,14 @@
-// Day 1: Setup Arduino IDE and ESP32 board package
-// Goal: Install IDE, add ESP32 boards, upload first sketch
-
-void setup() {
+// Day 1: Verify Arduino IDE and ESP32 serial upload.
+void setup(){
   Serial.begin(115200);
-  // TODO: setup code
+  delay(500);
+  Serial.println();
+  Serial.println("ESP32 setup successful!");
+  Serial.print("Chip model: "); Serial.println(ESP.getChipModel());
+  Serial.print("CPU frequency: "); Serial.print(ESP.getCpuFreqMHz()); Serial.println(" MHz");
 }
-
-void loop() {
-  // TODO: main code
+void loop(){
+  static unsigned long count=0;
+  Serial.print("Running... "); Serial.println(count++);
+  delay(2000);
 }
