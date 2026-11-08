@@ -1,19 +1,25 @@
-# Day 28: Week 4 mini project: parking sensor
+# Day 28: Parking sensor mini project
 
-**Phase:** Phase 2: Analog, PWM and Sensors (Days 15-28)
-**Goal:** Ultrasonic plus buzzer plus LEDs
+**Goal:** Combine an ultrasonic sensor, three distance LEDs and a beeper.
 
-## What I learned
--
+## Wiring
+- HC-SR04 VCC → 5 V; GND → ESP32 GND
+- TRIG → GPIO 5
+- ECHO → GPIO 18 **through a voltage divider/level shifter** (HC-SR04 ECHO can be 5 V)
+- Green LED → GPIO 19 through its own 220–330 Ω resistor
+- Yellow LED → GPIO 17 through its own 220–330 Ω resistor
+- Red LED → GPIO 16 through its own 220–330 Ω resistor
+- Active buzzer module input → GPIO 25, only if its input is 3.3 V-compatible; otherwise use a transistor driver
 
-## Parts used
--
+All LED cathodes → GND. All module grounds must be common.
 
-## Wiring / pins
--
+## Behavior
+- More than 60 cm: green
+- 31–60 cm: yellow
+- 11–30 cm: red with slow beeps
+- 10 cm or less: red with faster beeps
 
-## Problems and fixes
--
+Thresholds are teaching defaults; tune them for your sensor and setup.
 
-## Result
-(Add a photo, GIF or video link)
+## Safety
+Never connect the HC-SR04 ECHO output directly to an ESP32 pin. Use a proper divider or logic-level shifter. Do not drive a large buzzer directly from a GPIO.
