@@ -1,38 +1,39 @@
-const int buttonPin = 2;
-const int ledPin = 13;
+// Day 6: Button debounce on ESP32
+// Button: GPIO 19 to GND. LED: GPIO 18 through a 220-330 ohm resistor to GND.
 
-int ledState = LOW;
-int buttonState = HIGH;
-int lastButtonReading = HIGH;
+const int BUTTON_PIN = 19;
+const int LED_PIN = 18;
+const unsigned long DEBOUNCE_MS = 50;
 
-unsigned long lastDebounceTime = 0;
-const unsigned long debounceDelay = 50;
+bool ledState = false;
+int stableButtonState = HIGH;
+int lastReading = HIGH;
+unsigned long lastChangeTime = 0;
 
 void setup() {
-  pinMode(buttonPin, INPUT_PULLUP);
-  pinMode(ledPin, OUTPUT);
-
-  digitalWrite(ledPin, ledState);
+  Serial.begin(115200);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, LOW);
+  Serial.println("Day 6 - debounced button");
 }
 
 void loop() {
-  int reading = digitalRead(buttonPin);
+  const int reading = digitalRead(BUTTON_PIN);
 
-  if (reading != lastButtonReading) {
-    lastDebounceTime = millis();
+  if (reading != lastReading) {
+    lastChangeTime = millis();
   }
 
-  if ((millis() - lastDebounceTime) > debounceDelay) {
-
-    if (reading != buttonState) {
-      buttonState = reading;
-
-      if (buttonState == LOW) {
+  if (millis() - lastChangeTime >= DEBOUNCE_MS) {
+    if (reading != stableButtonState) {
+      stableButtonState = reading;
+      if (stableButtonState == LOW) {
         ledState = !ledState;
-        digitalWrite(ledPin, ledState);
+        digitalWrite(LED_PIN, ledState ? HIGH : LOW);
+        Serial.println(ledState ? "LED ON" : "LED OFF");
       }
     }
   }
-
-  lastButtonReading = reading;
+  lastReading = reading;
 }
