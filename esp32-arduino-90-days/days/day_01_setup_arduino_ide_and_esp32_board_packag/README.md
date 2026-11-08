@@ -1,30 +1,21 @@
 # Day 1: Setup Arduino IDE and ESP32 board package
 
-**Phase:** Phase 1: Foundations (Days 1-14)
-**Goal:** Install IDE, add ESP32 boards, upload first sketch
+**Goal:** Install the Arduino IDE, add ESP32 board support and upload your first sketch.
 
-## What I learned
--How to install and set up Arduino IDE.
+## Setup
+1. Install Arduino IDE 2.x.
+2. Open Preferences and add Espressif's ESP32 Boards Manager URL from the official Espressif Arduino-ESP32 installation guide.
+3. Open Boards Manager, search for **esp32 by Espressif Systems**, and install it.
+4. Connect the ESP32-WROOM-32 development board with a USB data cable.
+5. Select the correct ESP32 board and COM port.
 
-How to add ESP32 board support using the Boards Manager.
+## Run
+Open this sketch, click Upload, then open Serial Monitor at **115200 baud**. You should see the chip model, CPU frequency and a counter.
 
-How to select the correct ESP32 board and COM port.
+## Troubleshooting
+- Try another USB data cable and USB port.
+- Install the USB-UART driver required by your development board.
+- Close Serial Monitor before uploading if the port is busy.
+- If upload fails at “Connecting…”, hold BOOT while upload starts, then release when writing begins.
 
-Got familiar with the Arduino IDE interface and basic settings
-
-## Parts used
--ESP32 development board (ESP32-WROOM-32)
-
-USB data cable
-
-Windows PC
-
-Arduino IDE
-
-## Wiring / pins
--No wiring was required today. I only connected the ESP32 to my PC using a USB cable.
-
-## Problems and fixes
--no prolem i found 
-
-
+Do not select a board based only on the module name; choose the matching development-board entry.
