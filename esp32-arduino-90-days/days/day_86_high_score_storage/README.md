@@ -1,19 +1,12 @@
-# Day 86: High score storage
+# Day 86: High-score storage
 
-**Phase:** Phase 6: Capstone - ESP32 Racing Game (Days 78-90)
-**Goal:** Save best score in NVS
+**Goal:** Save the best score in ESP32 NVS so it survives power loss.
 
-## What I learned
--
+## Run
+Use the OLED and two buttons from earlier capstone lessons. The best score is loaded at startup and saved only when a new record is achieved. After a crash, press the left button to restart.
 
-## Parts used
--
+## Concepts
+The Preferences library stores an integer under namespace `race-game` and key `high`. Flash writes are performed only when the record improves, not every frame.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Reset the record
+You can clear the stored key with a separate Preferences sketch or erase the ESP32 flash. Be aware that erasing flash removes other stored settings too.
