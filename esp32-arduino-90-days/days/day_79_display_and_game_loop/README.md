@@ -1,19 +1,12 @@
 # Day 79: Display and game loop
 
-**Phase:** Phase 6: Capstone - ESP32 Racing Game (Days 78-90)
-**Goal:** Fixed timestep rendering
+**Goal:** Initialize the OLED and create a fixed-interval update loop.
 
-## What I learned
--
+## Wiring and libraries
+OLED SDA → GPIO 21, SCL → GPIO 22, GND and supported VCC. Install Adafruit SSD1306 and Adafruit GFX.
 
-## Parts used
--
+## Run
+Upload and observe the title screen and frame counter.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+The loop updates at a target interval of 33 ms (about 30 updates per second) using `millis()`. It avoids long blocking delays. OLED transfer time limits the actual frame rate, so this is a target rather than a guarantee.
