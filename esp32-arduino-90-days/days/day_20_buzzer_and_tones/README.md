@@ -1,19 +1,12 @@
 # Day 20: Buzzer and tones
 
-**Phase:** Phase 2: Analog, PWM and Sensors (Days 15-28)
-**Goal:** Play simple melodies
+**Goal:** Generate different pitches with a passive piezo buzzer.
 
-## What I learned
--
+## Wiring
+Passive buzzer positive → GPIO 25; negative → GND. If using a larger speaker or buzzer module, use a suitable driver transistor and follow its datasheet.
 
-## Parts used
--
+## Run
+The sketch uses the Arduino-ESP32 core 3.x LEDC tone functions to play four notes. An **active** buzzer generally makes one fixed tone when powered; use a passive buzzer for pitch control.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+Frequency (Hz) controls pitch and duration controls how long the note plays. Do not connect a low-impedance speaker directly to a GPIO.
