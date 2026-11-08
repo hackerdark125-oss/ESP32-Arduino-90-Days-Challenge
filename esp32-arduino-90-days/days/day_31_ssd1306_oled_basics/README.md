@@ -1,19 +1,15 @@
 # Day 31: SSD1306 OLED basics
 
-**Phase:** Phase 3: Displays and Communication (Days 29-42)
-**Goal:** Draw text with Adafruit GFX
+**Goal:** Initialize a 128×64 I2C OLED and display text.
 
-## What I learned
--
+## Wiring
+OLED SDA → GPIO 21; SCL → GPIO 22; GND → GND; VCC → the voltage supported by your OLED breakout (many accept 3.3 V).
 
-## Parts used
--
+## Libraries
+Install **Adafruit SSD1306** and **Adafruit GFX Library** from Arduino IDE Library Manager.
 
-## Wiring / pins
--
+## Run
+Upload the sketch. It tries I2C address 0x3C. If the display remains blank, run the Day 29 scanner and update the address if needed. The sketch prints an error to Serial Monitor at 115200 baud if initialization fails.
 
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+The display uses a framebuffer. Draw text, then call `display.display()` to transfer the buffer to the OLED.
