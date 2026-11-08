@@ -1,19 +1,12 @@
 # Day 82: Obstacles and spawning
 
-**Phase:** Phase 6: Capstone - ESP32 Racing Game (Days 78-90)
-**Goal:** Random traffic cars
+**Goal:** Create obstacles that appear in random lanes and move down the road.
 
-## What I learned
--
+## Wiring and libraries
+Use the OLED from Day 79. No extra wiring is needed.
 
-## Parts used
--
+## Run
+Upload the sketch. A rectangular obstacle repeatedly spawns above the screen in a random lane and moves downward.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+The obstacle is represented by a lane index and a Y coordinate. When it leaves the screen, it is reset above the top and assigned a new random lane. The random seed uses an unconnected ADC input; results are pseudo-random, not cryptographically secure.
