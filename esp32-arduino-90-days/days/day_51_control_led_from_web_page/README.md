@@ -1,19 +1,17 @@
-# Day 51: Control LED from web page
+# Day 51: Control an LED from a web page
 
-**Phase:** Phase 4: WiFi, Web and IoT (Days 43-63)
-**Goal:** Buttons that call routes
+**Goal:** Turn an ESP32-connected LED on and off from a browser on the same local network.
 
-## What I learned
--
+## Wiring
+GPIO 18 → 220–330 Ω resistor → LED anode; LED cathode → GND.
 
-## Parts used
--
+## Before upload
+Enter Wi-Fi credentials. Do not commit real credentials to the public repository.
 
-## Wiring / pins
--
+## Run
+Upload and open Serial Monitor at 115200 baud. Visit the printed IP address from a phone/computer connected to the same Wi-Fi. Use the ON and OFF buttons.
 
-## Problems and fixes
--
+## Concepts
+The web server handles `/on` and `/off` routes, changes the GPIO output and returns the updated page.
 
-## Result
-(Add a photo, GIF or video link)
+**Safety:** This demo controls only a low-voltage LED. Do not use the example to switch mains voltage or dangerous equipment.
