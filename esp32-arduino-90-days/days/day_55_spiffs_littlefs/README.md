@@ -1,19 +1,11 @@
-# Day 55: SPIFFS / LittleFS
+# Day 55: LittleFS flash storage
 
-**Phase:** Phase 4: WiFi, Web and IoT (Days 43-63)
-**Goal:** Serve files from flash
+**Goal:** Save and read a small text file in the ESP32's internal flash filesystem.
 
-## What I learned
--
+## Run
+Upload the sketch and open Serial Monitor at 115200 baud. The ESP32 mounts LittleFS, writes `/notes.txt`, then reads it back.
 
-## Parts used
--
+## Concepts
+LittleFS stores files in a flash partition. The `LittleFS.begin(true)` call may format the filesystem if mounting fails, which erases existing LittleFS contents. Use that option carefully in projects with important stored data.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+No external wiring or extra library is required for supported ESP32 Arduino core versions.
