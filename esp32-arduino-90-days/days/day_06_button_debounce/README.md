@@ -1,73 +1,28 @@
 # Day 6: Button debounce
 
-**Phase:** Phase 1: Foundations (Days 1-14)
-**Goal:** Handle bouncing in software
+**Goal:** Prevent one physical button press from being read as several presses.
 
-## What I learned
--Learned what button bouncing is and why it happens.
+## Parts
+- ESP32-WROOM-32
+- Push button
+- LED and 220–330 Ω resistor
+- Breadboard and jumper wires
 
+## Wiring
+- Button leg 1 → GPIO 19
+- Button leg 2 → GND
+- LED anode (long leg) → GPIO 18 through a 220–330 Ω resistor
+- LED cathode (short leg) → GND
 
+The button uses the ESP32's internal pull-up, so no external pull-up resistor is needed. The input reads HIGH when released and LOW when pressed.
 
-Understood that a physical push button can produce multiple signals from a single press.
+## Upload
+1. Open `day_06_button_debounce.ino` in Arduino IDE.
+2. Select your ESP32 board and its COM port.
+3. Upload, then open Serial Monitor at **115200 baud**.
+4. Press and release the button. The LED should toggle once per press.
 
+## How it works
+A mechanical button can rapidly switch between HIGH and LOW while its contacts settle. The sketch waits for the reading to remain stable for 50 ms before accepting a state change.
 
-
-Learned how to use millis() to create a debounce delay.
-
-
-
-Understood how to detect a stable button press.
-
-
-
-Learned how software debounce prevents unwanted multiple triggers.
-
-## Parts used
--Arduino Uno R3
-
-
-
-Push button
-
-
-
-LED
-
-
-
-220Ω resistor
-
-
-
-Breadboard
-
-
-
-Jumper wires
-
-
-
-USB cable
-
-## Wiring / pins
--Component	Arduino Pin
-Push button	Pin 2 and GND
-LED positive (+)	Pin 13
-LED negative (-)	GND
-
-## Problems and fixes
--Problem: One button press sometimes triggered multiple times.
-- Fix: Added software debounce logic.
-
-
-
-Problem: Button readings changed rapidly.
-- Fix: Used a debounce interval of 50 milliseconds.
-
-
-
-Problem: LED state changed unexpectedly.
-- Fix: Checked the button's stable state before changing the LED.
-
-## Result
-(Add a photo, GIF or video link)
+**Safety:** Use the resistor in series with the LED. Never connect GPIO directly to 5 V.
