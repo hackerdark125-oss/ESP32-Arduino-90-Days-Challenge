@@ -1,19 +1,33 @@
 # Day 78: Capstone planning
 
-**Phase:** Phase 6: Capstone - ESP32 Racing Game (Days 78-90)
-**Goal:** Design, parts list and architecture
+**Project:** Build a simple 3-lane OLED racing game for the ESP32-WROOM-32.
 
-## What I learned
--
+## Hardware
+- ESP32-WROOM-32 development board
+- 128×64 SSD1306 I2C OLED
+- Two momentary push buttons
+- Optional passive piezo buzzer
+- Breadboard, jumper wires and USB power
 
-## Parts used
--
+## Wiring plan
+- OLED SDA 21, SCL 22, GND, supported VCC
+- Left button GPIO 32 to GND
+- Right button GPIO 33 to GND
+- Optional passive buzzer GPIO 25 to GND
 
-## Wiring / pins
--
+Buttons use INPUT_PULLUP. No external pull-up is required for normal awake operation.
 
-## Problems and fixes
--
+## Software architecture
+- Fixed-rate update loop
+- Three road lanes and a player car
+- Obstacles spawn and move downward
+- Rectangle collision detection
+- Score and increasing difficulty
+- Sound effects and NVS high-score storage
+- Menu, playing and game-over states
 
-## Result
-(Add a photo, GIF or video link)
+## Libraries
+Adafruit SSD1306, Adafruit GFX. The later high-score lesson uses Preferences, included with the ESP32 core.
+
+## Safety
+Use only a small passive buzzer on a suitable GPIO or a driver. Do not connect motors or high-current loads directly to ESP32 pins.
