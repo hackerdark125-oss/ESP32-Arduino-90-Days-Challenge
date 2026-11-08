@@ -1,11 +1,38 @@
-// Day 86: High score storage
-// Goal: Save best score in NVS
-
-void setup() {
-  Serial.begin(115200);
-  // TODO: setup code
+// Day 86: Save the best racing score in NVS Preferences.
+#include <Wire.h>
+#include <Preferences.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+Adafruit_SSD1306 display(128,64,&Wire,-1);
+Preferences prefs;
+const int LEFT=32,RIGHT=33,laneX[]={28,64,100};
+int player=1,obLane=0,obY=-10,score=0,highScore=0,lastL=HIGH,lastR=HIGH;
+bool over=false;unsigned long frameAt=0,moveAt=0;
+void setup(){
+ pinMode(LEFT,INPUT_PULLUP);pinMode(RIGHT,INPUT_PULLUP);randomSeed(analogRead(34));
+ prefs.begin("race-game",false);highScore=prefs.getInt("high",0);
+ Wire.begin(21,22);if(!display.begin(SSD1306_SWITCHCAPVCC,0x3C))while(true)delay(1000);
 }
-
-void loop() {
-  // TODO: main code
+void loop(){
+ if(millis()-frameAt<40)return;frameAt=millis();
+ int l=digitalRead(LEFT),r=digitalRead(RIGHT);
+ if(over&&l==LOW&&lastL==HIGH){player=1;obLane=random(0,3);obY=-10;score=0;over=false;}
+ if(!over&&millis()-moveAt>140){
+  if(l==LOW&&lastL==HIGH&&player>0){player--;moveAt=millis();}
+  if(r==LOW&&lastR==HIGH&&player<2){player++;moveAt=millis();}
+ }
+ lastL=l;lastR=r;
+ if(!over){
+  obY+=2;
+  if(obY>64){obY=-10;obLane=random(0,3);score++;}
+  if(player==obLane&&obY>=47&&obY<=61){
+   over=true;
+   if(score>highScore){highScore=score;prefs.putInt("high",highScore);}
+  }
+ }
+ display.clearDisplay();display.drawLine(46,0,46,63,SSD1306_WHITE);display.drawLine(82,0,82,63,SSD1306_WHITE);
+ display.fillRect(laneX[obLane]-6,obY,12,10,SSD1306_WHITE);display.fillRoundRect(laneX[player]-7,49,14,12,3,SSD1306_WHITE);
+ display.setTextSize(1);display.setTextColor(SSD1306_WHITE);display.setCursor(0,0);display.print("S:");display.print(score);display.print(" Best:");display.print(highScore);
+ if(over){display.setCursor(24,28);display.print("CRASH - LEFT=RETRY");}
+ display.display();
 }
