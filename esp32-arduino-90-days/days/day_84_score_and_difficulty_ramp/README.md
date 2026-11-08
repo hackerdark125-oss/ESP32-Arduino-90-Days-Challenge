@@ -1,19 +1,9 @@
 # Day 84: Score and difficulty ramp
 
-**Phase:** Phase 6: Capstone - ESP32 Racing Game (Days 78-90)
-**Goal:** Speed increases over time
+**Goal:** Award points when an obstacle passes and gradually increase its speed.
 
-## What I learned
--
+## Run
+Use the OLED and two buttons from the previous capstone days. Avoid obstacles and watch the score rise. Every eight points, the obstacle speed increases up to a capped value.
 
-## Parts used
--
-
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+Score is awarded when an obstacle leaves the screen. Difficulty is derived from score, keeping the rule simple and predictable. The collision helper is intentionally simplified to lane and vertical-position checks for this lesson.
