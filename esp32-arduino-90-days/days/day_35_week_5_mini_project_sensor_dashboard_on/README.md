@@ -1,19 +1,16 @@
-# Day 35: Week 5 mini project: sensor dashboard on OLED
+# Day 35: Sensor dashboard on OLED
 
-**Phase:** Phase 3: Displays and Communication (Days 29-42)
-**Goal:** Temp, humidity and distance
+**Goal:** Combine an analog sensor input and an OLED display into a live dashboard.
 
-## What I learned
--
+## Wiring
+- Potentiometer outer legs → 3V3 and GND; wiper → GPIO 34.
+- SSD1306 OLED SDA → GPIO 21; SCL → GPIO 22; GND → GND; VCC → supported voltage.
 
-## Parts used
--
+## Libraries
+Install Adafruit SSD1306 and Adafruit GFX.
 
-## Wiring / pins
--
+## Run
+Upload and turn the potentiometer. The OLED displays the ADC value, an approximate percentage and a bar graph. Serial Monitor uses 115200 baud for initialization errors.
 
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+This mini project combines ADC sampling, value mapping, text rendering and simple graphics. The percentage is a scaled raw reading, not a calibrated physical measurement.
