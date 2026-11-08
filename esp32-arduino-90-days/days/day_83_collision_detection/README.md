@@ -1,19 +1,12 @@
 # Day 83: Collision detection
 
-**Phase:** Phase 6: Capstone - ESP32 Racing Game (Days 78-90)
-**Goal:** Hitbox checks
+**Goal:** Detect when the player's car overlaps an obstacle.
 
-## What I learned
--
+## Controls
+Left button GPIO 32 to GND; right button GPIO 33 to GND. OLED uses SDA 21 and SCL 22.
 
-## Parts used
--
+## Run
+Upload and move between lanes to avoid the falling obstacle. When the player and obstacle rectangles overlap, the game displays CRASH and stops movement.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+The `overlaps()` helper uses axis-aligned rectangle collision: two rectangles collide when their horizontal and vertical ranges overlap. This is simple and efficient for a small 2D game.
