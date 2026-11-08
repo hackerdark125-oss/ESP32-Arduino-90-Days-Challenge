@@ -1,19 +1,21 @@
 # Day 19: Servo motor control
 
-**Phase:** Phase 2: Analog, PWM and Sensors (Days 15-28)
-**Goal:** Sweep and position a servo
+**Goal:** Move a hobby servo between positions.
 
-## What I learned
--
+## Parts and wiring
+- Standard 3-wire hobby servo
+- Servo signal (usually orange/yellow) → GPIO 18
+- Servo V+ (usually red) → suitable regulated 5 V supply
+- Servo GND (usually brown/black) → supply GND
+- ESP32 GND → same supply GND
 
-## Parts used
--
+**Important:** Do not power a servo from the ESP32 3V3 pin. Use a supply rated for the servo's current. Never connect 5 V to an ESP32 GPIO.
 
-## Wiring / pins
--
+## Library
+Install **ESP32Servo** from Arduino IDE Library Manager.
 
-## Problems and fixes
--
+## Run
+Upload the sketch. The servo sweeps from 0° to 180° and back. Mechanical servos may not safely reach the full range; disconnect the linkage if it binds and reduce the angle range.
 
-## Result
-(Add a photo, GIF or video link)
+## Exercise
+Change the step size or use a fixed angle with `myServo.write(angle)`.
