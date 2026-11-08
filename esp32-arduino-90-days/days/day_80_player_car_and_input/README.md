@@ -1,19 +1,14 @@
 # Day 80: Player car and input
 
-**Phase:** Phase 6: Capstone - ESP32 Racing Game (Days 78-90)
-**Goal:** Buttons or encoder controls
+**Goal:** Move a player car between three lanes using two buttons.
 
-## What I learned
--
+## Wiring
+- OLED SDA 21, SCL 22, GND and supported VCC.
+- Left button between GPIO 32 and GND.
+- Right button between GPIO 33 and GND.
 
-## Parts used
--
+## Run
+Install Adafruit SSD1306 and GFX, upload, and press the buttons. The car moves left or right and stays within the three lanes.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+The player position is represented by a lane index (0–2), not an arbitrary screen coordinate. Edge detection and a small repeat guard prevent one held button from moving too quickly.
