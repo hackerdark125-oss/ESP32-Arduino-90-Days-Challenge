@@ -1,19 +1,15 @@
-# Day 16: ADC calibration and smoothing
+# Day 16: ADC smoothing and scaling
 
-**Phase:** Phase 2: Analog, PWM and Sensors (Days 15-28)
-**Goal:** Average readings, map values
+**Goal:** Reduce noisy potentiometer readings by averaging multiple samples and convert the result to a percentage.
 
-## What I learned
--
+## Wiring
+Potentiometer outer legs → 3V3 and GND; center wiper → GPIO 34.
 
-## Parts used
--
+## Run
+Upload and open Serial Monitor at 115200 baud. Rotate the potentiometer slowly and compare the stable percentage output.
 
-## Wiring / pins
--
+## Concepts
+The sketch averages 20 readings. Averaging reduces random noise but adds a little response delay. `map()` converts the 0–4095 raw scale to 0–100. The mapping assumes the full raw range and is not a substitute for ADC calibration.
 
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Exercise
+Change `SAMPLE_COUNT` to 5 and 50. Observe the trade-off between responsiveness and stability.
