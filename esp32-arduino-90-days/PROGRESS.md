@@ -1,6 +1,6 @@
 # Progress Tracker
 
-Tick each day as you finish it. Change `[ ]` to `[x]`.
+Tick a day only after compiling, uploading and verifying it on your ESP32. Repository code and README preparation is tracked separately in [CODE_STATUS.md](CODE_STATUS.md). The checkboxes below are intentionally not pre-checked because physical hardware verification has not been confirmed.
 
 
 ## Phase 1: Foundations (Days 1-14)
