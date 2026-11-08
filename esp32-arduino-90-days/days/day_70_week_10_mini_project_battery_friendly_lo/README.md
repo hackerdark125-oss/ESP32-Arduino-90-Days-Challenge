@@ -1,19 +1,12 @@
-# Day 70: Week 10 mini project: battery-friendly logger
+# Day 70: Battery-friendly logger mini project
 
-**Phase:** Phase 5: Advanced ESP32 (Days 64-77)
-**Goal:** Sleep, wake, log, repeat
+**Goal:** Wake periodically, read an analog input, save a counter in NVS, then return to deep sleep.
 
-## What I learned
--
+## Wiring
+Potentiometer outer legs → 3V3 and GND; wiper → GPIO 34.
 
-## Parts used
--
+## Run
+Upload and open Serial Monitor at 115200 baud. The ESP32 logs one ADC reading, increments a persistent sample counter, then sleeps for 15 seconds. It restarts and repeats after waking.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+Deep sleep reduces average power by keeping the chip asleep between samples. Preferences stores the sample count across resets. This is a teaching example, not a complete battery-optimized product; regulator quiescent current, sensor power, wake time and battery chemistry also matter.
