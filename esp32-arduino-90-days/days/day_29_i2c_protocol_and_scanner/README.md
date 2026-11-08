@@ -1,19 +1,14 @@
 # Day 29: I2C protocol and scanner
 
-**Phase:** Phase 3: Displays and Communication (Days 29-42)
-**Goal:** Find devices on the bus
+**Goal:** Discover I2C device addresses connected to the ESP32.
 
-## What I learned
--
+## Wiring
+Connect the module's SDA → GPIO 21, SCL → GPIO 22, GND → GND, and VCC to the module's supported voltage. Many I2C breakout boards include pull-up resistors; avoid adding multiple strong pull-ups.
 
-## Parts used
--
+## Run
+Upload and open Serial Monitor at 115200 baud. The scanner checks addresses 1–126 every three seconds.
 
-## Wiring / pins
--
+## Concepts
+I2C uses SDA for data and SCL for clock. Each device responds to an address. If none are found, check power, ground, SDA/SCL orientation, voltage compatibility and the module's address.
 
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+**Safety:** Ensure I2C pull-ups do not pull ESP32 lines above 3.3 V.
