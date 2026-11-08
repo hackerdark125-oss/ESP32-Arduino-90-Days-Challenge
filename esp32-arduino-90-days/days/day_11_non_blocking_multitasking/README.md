@@ -1,19 +1,18 @@
 # Day 11: Non-blocking multitasking
 
-**Phase:** Phase 1: Foundations (Days 1-14)
-**Goal:** Run two timed tasks at once
+**Goal:** Run two independent timed jobs without using `delay()`.
 
-## What I learned
--
+## Wiring
+- GPIO 18 → resistor (220–330 Ω) → LED 1 anode; cathode → GND
+- GPIO 19 → resistor (220–330 Ω) → LED 2 anode; cathode → GND
 
-## Parts used
--
+## Expected result
+LED 1 toggles every 300 ms and LED 2 every 1000 ms. Their timing does not block each other.
 
-## Wiring / pins
--
+## Concepts
+Each `BlinkTask` stores its own pin, interval, last-change time and state. The main loop checks both tasks on every pass.
 
-## Problems and fixes
--
+This is cooperative multitasking, not a separate FreeRTOS task. It is a useful stepping stone before the ESP32 FreeRTOS lessons.
 
-## Result
-(Add a photo, GIF or video link)
+## Exercise
+Add a third LED on GPIO 21 with a 1500 ms interval and add it to the `tasks` array.
