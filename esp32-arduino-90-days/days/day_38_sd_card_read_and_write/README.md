@@ -1,19 +1,22 @@
 # Day 38: SD card read and write
 
-**Phase:** Phase 3: Displays and Communication (Days 29-42)
-**Goal:** Log data to a file
+**Goal:** Append a line to a microSD card and read the file back.
 
-## What I learned
--
+## Wiring (SPI)
+- CS → GPIO 5
+- SCK → GPIO 18
+- MISO → GPIO 19
+- MOSI → GPIO 23
+- GND → GND
+- Power the SD module as specified by its manufacturer.
 
-## Parts used
--
+Use a 3.3 V-compatible SD breakout. A bare microSD card is not 5 V tolerant.
 
-## Wiring / pins
--
+## Card format
+Use a known-good microSD card formatted as FAT16/FAT32 (not exFAT for this basic SD library example).
 
-## Problems and fixes
--
+## Run
+Upload and open Serial Monitor at 115200 baud. The sketch appends a line to `/esp32-log.txt`, then prints the file contents.
 
-## Result
-(Add a photo, GIF or video link)
+## Troubleshooting
+Check CS pin, SPI wiring, card format and module voltage. Avoid removing the card while writing.
