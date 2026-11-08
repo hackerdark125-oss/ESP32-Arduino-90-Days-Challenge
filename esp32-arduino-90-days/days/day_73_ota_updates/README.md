@@ -1,19 +1,15 @@
-# Day 73: OTA updates
+# Day 73: OTA firmware updates
 
-**Phase:** Phase 5: Advanced ESP32 (Days 64-77)
-**Goal:** Upload code over WiFi
+**Goal:** Upload new firmware to the ESP32 over Wi-Fi after the first USB upload.
 
-## What I learned
--
+## Before upload
+Enter Wi-Fi credentials. Keep them private. Install the ESP32 board package in Arduino IDE.
 
-## Parts used
--
+## First upload
+Connect USB and upload this sketch normally. Open Serial Monitor at 115200 baud and note the IP address.
 
-## Wiring / pins
--
+## OTA upload
+In Arduino IDE, select the network port named **esp32-learning-board** (it may take a moment to appear), then upload a new sketch over Wi-Fi. Keep the ESP32 powered and on the same network.
 
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Security
+OTA should be protected on trusted networks. This learning example does not configure a password or signed firmware. Do not expose it to untrusted networks.
