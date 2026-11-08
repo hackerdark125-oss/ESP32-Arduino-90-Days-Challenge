@@ -1,19 +1,14 @@
-# Day 71: Touch pins
+# Day 71: Capacitive touch pins
 
-**Phase:** Phase 5: Advanced ESP32 (Days 64-77)
-**Goal:** Capacitive touch input
+**Goal:** Detect a finger using the ESP32's built-in capacitive touch sensor.
 
-## What I learned
--
+## Compatibility
+This example targets the original ESP32-WROOM-32 touch peripheral. Touch support and APIs differ on newer ESP32 variants.
 
-## Parts used
--
+## Run
+Upload and open Serial Monitor at 115200 baud. Touch the exposed GPIO 4 pad carefully and observe the raw reading.
 
-## Wiring / pins
--
+## Concepts
+The original ESP32 touch sensor measures capacitance. Touch usually lowers the reported value. The threshold is estimated from a startup baseline and may need tuning for your board, wiring and environment.
 
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+Do not connect the touch pin to 5 V. Avoid touching exposed electronics while the board is connected to other equipment.
