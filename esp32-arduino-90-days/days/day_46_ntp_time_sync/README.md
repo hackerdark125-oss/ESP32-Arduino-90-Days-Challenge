@@ -1,19 +1,12 @@
-# Day 46: NTP time sync
+# Day 46: NTP time synchronization
 
-**Phase:** Phase 4: WiFi, Web and IoT (Days 43-63)
-**Goal:** Get real time over the internet
+**Goal:** Set the ESP32 system clock using a Network Time Protocol server.
 
-## What I learned
--
+## Before upload
+Enter your Wi-Fi SSID and password. Do not commit real credentials to the public repository. The example uses India Standard Time (UTC+5:30) and no daylight-saving offset.
 
-## Parts used
--
+## Run
+Upload and open Serial Monitor at 115200 baud. After connecting to Wi-Fi, the ESP32 requests time from `pool.ntp.org` and prints the local time.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+NTP provides network time; `configTime()` configures the timezone offset and server. The time is available only after a successful network synchronization.
