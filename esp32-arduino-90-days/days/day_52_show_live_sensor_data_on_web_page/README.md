@@ -1,19 +1,15 @@
-# Day 52: Show live sensor data on web page
+# Day 52: Live sensor data on a web page
 
-**Phase:** Phase 4: WiFi, Web and IoT (Days 43-63)
-**Goal:** Auto-refresh dashboard
+**Goal:** Display a live ADC reading in a browser, refreshed every second.
 
-## What I learned
--
+## Wiring
+Potentiometer outer legs → 3V3 and GND; center wiper → GPIO 34.
 
-## Parts used
--
+## Before upload
+Enter Wi-Fi credentials; do not commit real credentials.
 
-## Wiring / pins
--
+## Run
+Upload and visit the printed IP address from a device on the same network. The page requests `/reading` once per second and updates the displayed ADC value without a full page reload.
 
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+The ESP32 exposes a root dashboard and a plain-text sensor endpoint. JavaScript `fetch()` polls the endpoint. This is a simple local demo; production dashboards should add authentication and secure transport.
