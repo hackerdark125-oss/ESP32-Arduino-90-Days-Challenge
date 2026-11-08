@@ -1,19 +1,15 @@
 # Day 88: Optimize performance
 
-**Phase:** Phase 6: Capstone - ESP32 Racing Game (Days 78-90)
-**Goal:** Hit smooth 30+ FPS
+**Goal:** Use a fixed update interval and reduce unnecessary work in the game loop.
 
-## What I learned
--
+## Run
+Upload the sketch and observe the game at an approximately 30 Hz target update rate.
 
-## Parts used
--
+## Optimizations demonstrated
+- Uses `micros()` for a stable target frame interval.
+- Uses fixed-size arrays and integer state instead of repeated dynamic object creation.
+- Keeps rendering and game-state data small for a 128×64 display.
+- Avoids Serial printing inside the frame loop.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Performance note
+The OLED transfer itself takes time, so 30 FPS is a target, not a guaranteed measured result. For a real benchmark, measure frame duration over many frames and report the measured average and worst case rather than claiming a frame rate without testing.
