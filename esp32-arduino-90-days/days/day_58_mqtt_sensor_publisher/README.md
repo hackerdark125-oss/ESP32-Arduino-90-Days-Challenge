@@ -1,19 +1,15 @@
 # Day 58: MQTT sensor publisher
 
-**Phase:** Phase 4: WiFi, Web and IoT (Days 43-63)
-**Goal:** Send readings to a topic
+**Goal:** Send a potentiometer ADC value to an MQTT topic every five seconds.
 
-## What I learned
--
+## Wiring
+Potentiometer outer legs → 3V3 and GND; wiper → GPIO 34.
 
-## Parts used
--
+## Library and setup
+Install PubSubClient. Enter Wi-Fi credentials and change the topic to a unique label.
 
-## Wiring / pins
--
+## Run
+Upload and open Serial Monitor at 115200 baud. Subscribe to the topic using an MQTT client to see the readings.
 
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Security
+The sketch uses the shared public test broker over unencrypted MQTT. Use only non-sensitive demo values. Production systems require broker authentication, TLS and topic access controls.
