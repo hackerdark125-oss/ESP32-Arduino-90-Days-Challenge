@@ -1,19 +1,15 @@
-# Day 49: Week 7 mini project: weather station
+# Day 49: Weather station mini project
 
-**Phase:** Phase 4: WiFi, Web and IoT (Days 43-63)
-**Goal:** API data on OLED
+**Goal:** Fetch current weather values from Open-Meteo and show them on an SSD1306 OLED.
 
-## What I learned
--
+## Before upload
+Set your Wi-Fi credentials. The example requests a sample coordinate near Dehradun; edit latitude/longitude in the URL for your chosen location.
 
-## Parts used
--
+## Libraries and wiring
+Install ArduinoJson v7, Adafruit SSD1306 and Adafruit GFX. OLED SDA 21, SCL 22, GND and supported VCC.
 
-## Wiring / pins
--
+## Run
+Upload and open Serial Monitor at 115200 baud. The OLED should show temperature and humidity from the Open-Meteo current-weather response.
 
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## TLS warning
+For a short learning demonstration, this sketch calls `setInsecure()`, which disables HTTPS certificate verification. This is **not safe for production**. Real projects must validate the server certificate using a maintained CA certificate. Do not send secrets through this insecure connection.
