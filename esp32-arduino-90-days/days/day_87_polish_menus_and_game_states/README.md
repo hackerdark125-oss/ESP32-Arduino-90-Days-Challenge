@@ -1,19 +1,14 @@
-# Day 87: Polish: menus and game states
+# Day 87: Menus and game states
 
-**Phase:** Phase 6: Capstone - ESP32 Racing Game (Days 78-90)
-**Goal:** Title, play, game over
+**Goal:** Add clear title, playing and game-over states.
 
-## What I learned
--
+## Controls
+- Right button GPIO 33 starts from the title screen.
+- Left/right buttons GPIO 32/33 change lanes while playing.
+- Either button returns from game over to the title screen.
 
-## Parts used
--
+## Run
+Use the SSD1306 OLED wiring and Adafruit libraries from earlier days. Upload and test each state transition.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+An enum represents the current game state. Input and rendering behavior depend on that state, making the game easier to extend than a collection of unrelated flags.
