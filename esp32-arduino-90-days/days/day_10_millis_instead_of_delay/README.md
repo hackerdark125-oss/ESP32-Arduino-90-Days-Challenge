@@ -1,19 +1,17 @@
 # Day 10: millis() instead of delay()
 
-**Phase:** Phase 1: Foundations (Days 1-14)
-**Goal:** Blink without blocking
+**Goal:** Blink an LED without pausing the whole program.
 
-## What I learned
--
+## Wiring
+GPIO 18 → 220–330 Ω resistor → LED anode. LED cathode → GND.
 
-## Parts used
--
+## Run
+Upload the sketch to the ESP32. The LED changes state every 500 ms.
 
-## Wiring / pins
--
+## Key idea
+`delay(500)` blocks the processor from doing other work in the loop. `millis()` returns the number of milliseconds since startup. Comparing elapsed time with `now - previousBlinkTime` allows other code to run between LED updates.
 
-## Problems and fixes
--
+Use unsigned time variables and subtraction for rollover-safe elapsed-time checks.
 
-## Result
-(Add a photo, GIF or video link)
+## Exercise
+Change `BLINK_INTERVAL_MS` to 100, 1000, and 2000 and observe the speed.
