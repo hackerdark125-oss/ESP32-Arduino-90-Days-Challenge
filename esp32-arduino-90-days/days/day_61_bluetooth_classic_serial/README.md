@@ -1,19 +1,12 @@
 # Day 61: Bluetooth Classic serial
 
-**Phase:** Phase 4: WiFi, Web and IoT (Days 43-63)
-**Goal:** Control from a phone
+**Goal:** Exchange text between the ESP32 and a phone over Bluetooth Classic SPP.
 
-## What I learned
--
+## Compatibility
+This lesson is for the original **ESP32-WROOM-32**. Some newer ESP32 variants (such as ESP32-S3/C3) do not support Bluetooth Classic SPP.
 
-## Parts used
--
+## Run
+Upload the sketch. Pair your phone with **ESP32-Serial-Demo**, then use a Bluetooth serial terminal app. Text sent from the phone appears in USB Serial Monitor; text sent from Serial Monitor is forwarded to the phone.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+Bluetooth Classic SPP provides a wireless serial-like connection. Pairing and app behavior vary by phone operating system.
