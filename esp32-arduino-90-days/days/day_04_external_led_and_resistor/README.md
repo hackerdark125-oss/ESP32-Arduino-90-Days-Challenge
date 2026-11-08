@@ -1,48 +1,15 @@
 # Day 4: External LED and resistor
 
-**Phase:** Phase 1: Foundations (Days 1-14)
-**Goal:** Wire an LED on a breadboard safely
+**Goal:** Connect and blink an external LED using a current-limiting resistor.
 
-## What I learned
--Learned how to connect an external LED to the ESP32.
+## Parts
+ESP32-WROOM-32, one LED, one 220–330 Ω resistor, breadboard and jumper wires.
 
-Understood LED polarity (positive and negative legs).
+## Wiring
+GPIO 18 → resistor → LED anode (long leg). LED cathode (short leg) → GND.
 
-Learned why a resistor is needed to protect the LED.
+## Run
+Upload the sketch. The LED should turn on for half a second and off for half a second.
 
-Practised using a breadboard for circuit connections.
-
-Learned how to control an external LED using digitalWrite()
-
-## Parts used
--ESP32 development board
-
-External LED
-
-220Ω resistor
-
-Breadboard
-
-Jumper wires
-
-USB cable
-
-## Wiring / pins
--LED positive (long leg) → GPIO 23 through a 220Ω resistor.
-
-LED negative (short leg) → GND.
-
-ESP32 connected to the computer using USB.
-
-## Problems and fixes
--Checked LED polarity when it didn't turn on.
-
-Checked breadboard connections.
-
-Verified the GPIO pin number in the code.
-
-Made sure the resistor was connected in series with the LED.
-
-## Result
-
-Successfully connected an external LED to the ESP32 and controlled it using Arduino code.
+## Safety
+Always use a series resistor with an ordinary LED. Never connect an LED directly between a GPIO and GND. Never connect 5 V to an ESP32 GPIO.
