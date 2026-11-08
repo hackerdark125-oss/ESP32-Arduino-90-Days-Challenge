@@ -1,19 +1,12 @@
 # Day 68: Preferences (NVS storage)
 
-**Phase:** Phase 5: Advanced ESP32 (Days 64-77)
-**Goal:** Save settings across reboots
+**Goal:** Store a small setting in non-volatile storage so it survives reboot.
 
-## What I learned
--
+## Run
+Upload and open Serial Monitor at 115200 baud. Each reset increments the saved boot counter.
 
-## Parts used
--
+## Concepts
+The Preferences library stores key/value data in ESP32 NVS. `getUInt()` reads a value with a default; `putUInt()` saves the updated value. Use a namespace to keep settings grouped.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Note
+Flash storage has finite write endurance. Do not write continuously in a fast loop; save only when a value changes or at sensible intervals.
