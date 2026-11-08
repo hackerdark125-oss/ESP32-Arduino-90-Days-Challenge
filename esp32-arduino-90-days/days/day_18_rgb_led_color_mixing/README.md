@@ -1,19 +1,18 @@
 # Day 18: RGB LED color mixing
 
-**Phase:** Phase 2: Analog, PWM and Sensors (Days 15-28)
-**Goal:** Three PWM channels
+**Goal:** Mix red, green and blue using three independent PWM channels.
 
-## What I learned
--
+## Wiring
+For a **common-cathode** RGB LED:
+- Common cathode → GND
+- Red anode → 220–330 Ω resistor → GPIO 25
+- Green anode → 220–330 Ω resistor → GPIO 26
+- Blue anode → 220–330 Ω resistor → GPIO 27
 
-## Parts used
--
+Use one resistor per color channel. If your LED is common-anode, this sketch's logic must be inverted.
 
-## Wiring / pins
--
+## Run
+Uses Arduino-ESP32 core 3.x LEDC functions. Upload and observe the sequence of colors.
 
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Exercise
+Change the three values in `setColor(red, green, blue)`. Each channel ranges from 0 to 255.
