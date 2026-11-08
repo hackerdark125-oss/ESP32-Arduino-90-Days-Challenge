@@ -1,19 +1,12 @@
 # Day 66: Queues between tasks
 
-**Phase:** Phase 5: Advanced ESP32 (Days 64-77)
-**Goal:** Pass sensor data safely
+**Goal:** Pass data from one FreeRTOS task to another using a queue.
 
-## What I learned
--
+## Run
+Upload and open Serial Monitor at 115200 baud. The producer generates sample values; the consumer receives and prints them.
 
-## Parts used
--
+## Concepts
+A queue copies data between tasks and provides synchronization. `xQueueSend()` adds an item, while `xQueueReceive()` removes one. The queue has a capacity of five integers.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Exercise
+Replace the generated value with `analogRead(34)` after connecting a potentiometer to GPIO 34.
