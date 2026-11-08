@@ -1,19 +1,23 @@
-# Day 14: Week 2 mini project: traffic light
+# Day 14: Traffic light mini project
 
-**Phase:** Phase 1: Foundations (Days 1-14)
-**Goal:** State machine with millis()
+**Goal:** Build a three-LED traffic light using an enum state machine and `millis()`.
 
-## What I learned
--
+## Parts and wiring
+Use three LEDs and three separate 220–330 Ω resistors.
+- GPIO 16 → resistor → red LED anode
+- GPIO 17 → resistor → yellow LED anode
+- GPIO 18 → resistor → green LED anode
+- All LED cathodes → GND
 
-## Parts used
--
+## Expected sequence
+1. Red for 4 seconds
+2. Green for 4 seconds
+3. Yellow for 1.5 seconds
+4. Repeat
 
-## Wiring / pins
--
+Serial Monitor at 115200 baud prints each state.
 
-## Problems and fixes
--
+## Concepts
+The `TrafficState` enum makes the current state explicit. `enterState()` changes the outputs and records the start time. The loop checks elapsed time without blocking, so other features can be added later.
 
-## Result
-(Add a photo, GIF or video link)
+**Safety:** This is a learning model only, not a real road signal controller.
