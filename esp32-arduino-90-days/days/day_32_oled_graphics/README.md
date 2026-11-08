@@ -1,19 +1,12 @@
 # Day 32: OLED graphics
 
-**Phase:** Phase 3: Displays and Communication (Days 29-42)
-**Goal:** Lines, rectangles, bitmaps
+**Goal:** Draw lines, rectangles, circles and rounded rectangles.
 
-## What I learned
--
+## Wiring and libraries
+Use the same I2C wiring as Day 31: SDA 21, SCL 22, GND and supported VCC. Install Adafruit SSD1306 and Adafruit GFX.
 
-## Parts used
--
+## Run
+Upload the sketch. It draws several geometric shapes and a short label on the OLED.
 
-## Wiring / pins
--
-
-## Problems and fixes
--
-
-## Result
-(Add a photo, GIF or video link)
+## Concepts
+Adafruit GFX provides drawing primitives. Coordinates start at the top-left corner (0,0); the display is 128 pixels wide and 64 pixels high. Drawing changes the local buffer; `display.display()` sends it to the screen.
