@@ -82,5 +82,4 @@ DAY 8 COMPLETE: DEMO FINISHED
 - **No output:** Check the selected board and port, then press the ESP32 reset button once after upload.
 - **Compilation error:** Check that the sketch filename and folder match and that all braces and semicolons are present.
 
-## Result
 
